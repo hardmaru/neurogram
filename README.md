@@ -3,7 +3,7 @@
 
 Creating abstract art by evolving neural networks in Javascript.
 
-![Burning Man](hardmaru.github.com/neurogram/img/burning_man.jpg)
+![Burning Man](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/burning_man.jpg)
 
 Implementation of CPPN-NEAT algorithm using recurrent.js and d3.js
 
@@ -14,8 +14,8 @@ See my blog post at [blog.otoro.net](http://blog.otoro.net/2015/07/31/neurogram/
 
 ## Examples
 
-![Warrior Critter](hardmaru.github.com/neurogram/img/red_critter.jpg)
-![Stomach Medicine](hardmaru.github.com/neurogram/img/stomach_medicine.jpg)
+![Warrior Critter](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/red_critter.jpg)
+![Stomach Medicine](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/stomach_medicine.jpg)
 
 ## Development
 
