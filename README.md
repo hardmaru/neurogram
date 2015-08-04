@@ -36,5 +36,8 @@ Have fun-
 
 ## License
 
+| code library    | license        |
+| --------------- |:--------------:|
 | recurrent.js    | MIT License    |
 | everything else | GNU GPL v3     |
+
