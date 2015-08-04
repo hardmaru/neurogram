@@ -35,5 +35,6 @@ Most of the code that does everything is in netart.js, neat.js, and recurrent.js
 Have fun-
 
 ## License
-recurrent.js <-> MIT License
-GNU GPL v3 <-> everything else
+
+| recurrent.js    | MIT License    |
+| everything else | GNU GPL v3     |
