@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="ōtoro.net">
+    <meta name="author" content="hardmaru">
+  <link rel="apple-touch-icon" href="ios/AppIcon.appiconset/Icon-60@2x.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="ios/AppIcon.appiconset/Icon-60@3x.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="ios/AppIcon.appiconset/Icon-76.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="ios/AppIcon.appiconset/Icon-76@2x.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="ios/AppIcon.appiconset/Icon-Small@2x.png" />
+  <head>
+    <title>neurogram</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/neurogram.css">
+  </head>
+
+  <body>
+
+    <div id="body" style="display:none">
+
+    <div class="container" id="mainScreen">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="text-center" id="instruction"></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <canvas id="imagePlane" width="10" height="10" title="double click on tile to expand"></canvas>
+        </div>
+
+        <div class="col-md-12 text-center">
+          <a class="btn btn-info btn-md" id = "startover_button"> restart </a>
+          <a class="btn btn-success btn-md" id = "evolve_button"> 　mutate　 </a>
+        </div>
+
+        <br/>
+
+        <div class="col-md-12 text-center">
+          <a class="btn btn-danger btn-md" id = "zoom_selected_button"> detail view </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container-fluid" id="secondScreen">
+
+      <br/>
+
+      <div class="row">
+      <div class="col-fixed-640" id="secondScreenArea">
+
+      <div class="row">
+        <div class="col-md-6">
+          <canvas id="selectedPlane" width="10" height="10"></canvas>
+        </div>
+        <div class="col-md-3" id="drawGraph"></div>
+      </div>
+
+      </div>
+      </div>
+
+      <br/>
+
+
+      <br/>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <a class="btn btn-info btn-md" id = "save_png_button"> save png </a>
+          <a class="btn btn-warning btn-md" id = "back_button"> go back </a>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h5 id="secondScreenWarning"></h5>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- footer -->
+    <section id="footer">
+    <div class="container" id="licenseSection">
+
+      <div class="row">
+
+      <div class="col-sm-6 text-center">
+      <br/>
+      <a href="http://blog.otoro.net/2015/07/31/neurogram/" target="_blank" id="wpLink">
+      <i class="fa fa-wordpress fa-2x"></i>
+      </a>
+      <a href="https://twitter.com/intent/follow?screen_name=hardmaru" id="twitterFollow">
+      <i class="fa fa-twitter-square fa-2x"></i>
+      </a>
+
+      </div>
+        <div class="col-sm-6 text-center" id="licenseTag">
+        <br/>
+      <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank"><img title="This app and all works produced by this app is licensed under Creative Commons Attribution-ShareAlike 4.0 International License." style="border-width:0" src="img/88x31.png" /></a>
+
+          </div>
+
+
+      </div>
+
+      <div>
+
+        <div class="col-md-12 text-center" id="origPicBreederLink">
+            <br/>
+            <a href = "http://picbreeder.org" target="_blank"> picbreeder </a> written in javascript.
+            <br/>
+        </div>
+
+        <div class="col-sm-12 text-center" id="otoroLink" style="display:none">
+
+          <a class="otoroLink" href="http://otoro.net/" target="_blank">&copy; otoro.net</a>
+
+        </div>
+      </div>
+
+      </div>
+    </div>
+
+    </div>
+
+    </body>
+
+    <!-- Main Libraries -->
+    <script src="lib/jquery-1.11.3.min.js"></script>
+    <script src="https://platform.twitter.com/widgets.js"></script>
+    <!--
+    <script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    -->
+    <script src="lib/d3.v3.js"></script>
+    <script src="lib/cola.js"></script>
+    <script src="lib/bootstrap.3.2.0.min.js"></script>
+    <script src="lib/mobile-detect.0.4.1.min.js"></script>
+
+    <script>
+    // make jQuery sync
+    jQuery.ajaxSetup({async:false});
+
+    var md, desktopMode = true;
+
+    md = new MobileDetect(window.navigator.userAgent);
+    if (md.mobile()) {
+        desktopMode = false;
+        console.log('mobile: '+md.mobile());
+    } else {
+        desktopMode = true;
+        console.log('not mobile');
+    }
+
+    </script>
+
+    <!-- Our JavaScript -->
+    <script src="lib/recurrent.js"></script>
+    <script src="lib/neat.js"></script>
+    <script src="lib/neat.graph.js"></script>
+    <script src="lib/netart.js"></script>
+
+    <script src="neurogram.js"></script>
+
+    <script>
+
+    var inst = [];
+
+    inst.push('neurogram\n');
+    inst.push('select up to four images\n');
+    inst.push('mutate selected images\n');
+    if (desktopMode) {
+      inst.push('double click image to expand\n');
+    } else {
+      inst.push('detail view enlarges image\n');
+    }
+    inst.push('neurogram\n');
+
+    var timeInst = 0;
+    var timeInstLag = 3000;
+    var fadeTime = 500;
+
+    var i=1;
+
+    setTimeout(function(){
+      $("#instruction").html(inst[0]);
+    },0);
+    i++;
+    setTimeout(function(){
+      $("#instruction").html(inst[1]);
+    },timeInst+timeInstLag*i);
+    i++;
+    setTimeout(function(){
+      $("#instruction").html(inst[2]);
+    },timeInst+timeInstLag*i);
+    i++;
+    setTimeout(function(){
+      $("#instruction").html(inst[3]);
+    },timeInst+timeInstLag*i);
+    i++;
+    setTimeout(function(){
+      $("#instruction").html(inst[4]);
+      $("#origPicBreederLink").html("<br/>");
+      $("#otoroLink").fadeIn(fadeTime);
+    },timeInst+timeInstLag*i);
+    i++;
+
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#body').show();
+        neurogram.main();
+    });
+    </script>
+
+</html>
