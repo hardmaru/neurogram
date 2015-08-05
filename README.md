@@ -3,7 +3,7 @@
 
 Creating abstract art by evolving neural networks in Javascript.
 
-![Burning Man](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/burning_man.png)
+![neurogram](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/baby_face_gui.png)
 
 > *Burning Man*
 
@@ -16,6 +16,9 @@ See my blog post at [blog.otoro.net](http://blog.otoro.net/2015/07/31/neurogram/
 - [Neurogram](http://otoro.net/neurogram/)
 
 ## Examples
+
+![Burning Man](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/burning_man.png)
+> *Burning Man*
 
 ![Warrior Critter](https://raw.githubusercontent.com/hardmaru/neurogram/master/img/red_critter.png)
 
