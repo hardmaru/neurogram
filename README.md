@@ -7,7 +7,7 @@ Creating abstract art by evolving neural networks in Javascript.
 
 Implementation of CPPN-NEAT algorithm using recurrent.js and d3.js
 
-See my blog post at [blog.otoro.net](http://blog.otoro.net/2015/07/31/neurogram/) for more information, or [otoro.net](http://otoro.net/neurogram/?gallery=0) to see the art gallery.
+See my blog post at [blog.otoro.net](http://blog.otoro.net/2015/07/31/neurogram/) for more information, or [otoro.net](http://otoro.net/neurogram/?gallery=0) web demo, or the art [gallery](http://otoro.net/gallery/).
 
 ## online demo
 - [Neurogram](http://otoro.net/neurogram/)
